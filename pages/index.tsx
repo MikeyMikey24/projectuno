@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Button, Container, Heading, HStack, Switch, VStack } from "@chakra-ui/react";
+import { Button, Container, Heading, HStack, Img, Switch, VStack } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import Router from "next/router";
 import { useState } from "react";
@@ -23,7 +23,7 @@ export default function Home() {
       >
       <HStack 
       justifyContent={"space-between"}
-      spacing="1200" 
+      spacing="900" 
       mt="3" 
       ml="200" >
         <HStack justifyContent={'flex-start'}>
@@ -36,6 +36,11 @@ export default function Home() {
         </HStack>
 
         <HStack justifyContent="flex-end" spacing="5">
+        <Img borderRadius='full'
+          boxSize='40px'
+          src = '/Mikmik.jpg'
+          alt='Dan Abramov'
+        />  
         <Button 
         colorScheme="darkcyan"
         onClick={() => Router.push({ pathname: "/Profile" })}>
