@@ -42,11 +42,6 @@ export default function Profile(){
         
         <HStack justifyContent="flex-end" spacing="5">
         <Text as='b'>John Michael Amican</Text>
-        <Img borderRadius='full'
-          boxSize='40px'
-          src = '/Mikmik.jpg'
-          alt='Dan Abramov'
-        />  
         <Button
           colorScheme="DarkCyan"
           onClick={() => Router.push({ pathname: "/" })}>
