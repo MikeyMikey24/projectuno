@@ -1,5 +1,5 @@
 
-import { Button, Center, Heading, HStack, Switch, Text, VStack, } from '@chakra-ui/react'
+import { Img, Button, Center, Heading, HStack, Switch, Text, VStack, } from '@chakra-ui/react'
 import Head from 'next/head'
 import  Router  from 'next/router'
 import { useState } from 'react';
@@ -14,7 +14,7 @@ export default function Profile(){
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-    <VStack 
+        <VStack 
       bgImg= {dark? "/DarkMode.jpg": "/LightMode.jpg"}
       bgSize="100%"
       width="100%"
@@ -22,19 +22,16 @@ export default function Profile(){
       >
       <HStack 
       justifyContent={"space-between"}
-      spacing="1100" 
+      spacing="1050" 
       mt="3" 
       mr="2" >
         <HStack justifyContent={'flex-start'}>
-        <HStack> 
-          <Button
+        <Button
           colorScheme="DarkCyan"
           onClick={() => Router.push({ pathname: "/" })}
         >
           Home
         </Button>
-        
-        </HStack>
         <Switch
                   paddingTop={"1"}
                   colorScheme={"teal"}
@@ -42,25 +39,19 @@ export default function Profile(){
                   onChange={() => setDark(!dark)}
                 />
         </HStack>
-        </HStack>
-    <HStack 
-      justifyContent={"space-between"} 
-      mt="3" 
-      mr="2" >
-
+        
         <HStack justifyContent="flex-end" spacing="5">
-
-        <Button 
-        colorScheme="darkcyan">Sign-in</Button>
-
+        <Text as='b'>John Michael Amican</Text>
+        <Img borderRadius='full'
+          boxSize='40px'
+          src = './Mikmik.jpg'
+          alt='Dan Abramov'
+        />  
         <Button
           colorScheme="DarkCyan"
-          onClick={() => Router.push({ pathname: "/signup" })}>
-          Sign-up
+          onClick={() => Router.push({ pathname: "/" })}>
+          Logout
         </Button>
-
-        <Button colorScheme="DarkCyan">Logout</Button>
-
         </HStack>
       </HStack>
       </VStack>

@@ -1,4 +1,4 @@
-import { Button, Center,  Heading, HStack, Input, InputGroup, InputRightElement, Switch, Text, VStack, } from '@chakra-ui/react'
+import { Button, Center,  Heading, HStack, Input, InputGroup, InputRightElement, Switch, VStack, } from '@chakra-ui/react'
 import Head from 'next/head'
 import  Router  from 'next/router'
 import { useState, useContext } from "react";
@@ -21,7 +21,7 @@ export default function Signup(){
       >
       <HStack 
       justifyContent={"space-between"}
-      spacing="1100" 
+      spacing="1200" 
       mt="3" 
       mr="3" >
         <HStack justifyContent={'flex-start'}
@@ -49,15 +49,16 @@ export default function Signup(){
         <HStack justifyContent="flex-end" spacing="5">
 
         <Button 
-        colorScheme="darkcyan">Sign-in</Button>
+        colorScheme="darkcyan"
+        onClick={() => Router.push({ pathname: "/Profile" })}>
+          Sign-in
+          </Button>
 
         <Button
           colorScheme="DarkCyan"
           onClick={() => Router.push({ pathname: "/signup" })}>
           Sign-up
         </Button>
-
-        <Button colorScheme="DarkCyan">Logout</Button>
           </HStack>
         </HStack>
       </HStack>
@@ -79,6 +80,7 @@ export default function Signup(){
         colorScheme={"teal"}
         size={"md"}
         onChange={() => setShow(!show)}
+        
       />
       </InputRightElement>
       </InputGroup>
