@@ -13,7 +13,8 @@ export default function Signup(){
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <VStack 
+      <VStack
+      color = {dark ? 'white':'black'} 
       bgImg= {dark? "/DarkMode.jpg": "/LightMode.jpg"}
       bgSize="100%"
       width="100%"
@@ -70,10 +71,10 @@ export default function Signup(){
             <Input placeholder='Username' />
             <InputGroup size='md'>
             <Input
-        pr='4.5rem'
-        type={show ? 'text' : 'password'}
-        placeholder='Enter password'
-      />
+              pr='4.5rem'
+              type={show ? 'text' : 'password'}
+              placeholder='Enter password'
+              />
       <InputRightElement width='4.5rem'>
       <Switch
         paddingTop={"1"}

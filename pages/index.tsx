@@ -1,9 +1,7 @@
 import Head from "next/head";
-import { Button, Container, Heading, HStack, Img, Switch, VStack } from "@chakra-ui/react";
-import { Inter } from "next/font/google";
+import { Button, HStack, Switch, VStack } from "@chakra-ui/react";
 import Router from "next/router";
 import { useState } from "react";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [dark, setDark] = useState(false);
@@ -16,6 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <VStack 
+      color = {dark ? 'white':'black'}
       bgImg= {dark? "/DarkMode.jpg": "/LightMode.jpg"}
       bgSize="100%"
       width="100%"
@@ -23,7 +22,7 @@ export default function Home() {
       >
       <HStack 
       justifyContent={"space-between"}
-      spacing="900" 
+      spacing="1100" 
       mt="3" 
       ml="200" >
         <HStack justifyContent={'flex-start'}>
@@ -36,11 +35,6 @@ export default function Home() {
         </HStack>
 
         <HStack justifyContent="flex-end" spacing="5">
-        <Img borderRadius='full'
-          boxSize='40px'
-          src = '/Mikmik.jpg'
-          alt='Dan Abramov'
-        />  
         <Button 
         colorScheme="darkcyan"
         onClick={() => Router.push({ pathname: "/Profile" })}>
@@ -51,7 +45,6 @@ export default function Home() {
           onClick={() => Router.push({ pathname: "/signup" })}>
           Sign-up
         </Button>
-        <Button colorScheme="DarkCyan">Logout</Button>
         </HStack>
       </HStack>
       </VStack>

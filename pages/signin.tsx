@@ -1,5 +1,4 @@
-
-import { Img, Button, Center, Heading, HStack, Switch, Text, VStack, } from '@chakra-ui/react'
+import { Img, Button, HStack, Switch, Text, VStack, } from '@chakra-ui/react'
 import Head from 'next/head'
 import  Router  from 'next/router'
 import { useState } from 'react';
@@ -7,6 +6,8 @@ import { useState } from 'react';
 export default function Profile(){
   const [dark, setDark] = useState(false);
     let firstName = 'John Michael'
+    let surName = 'Amican'
+    let profilePic = '/Mikmik.jpg'
     return(
         <><Head>
             <title>Profile</title>
@@ -14,7 +15,7 @@ export default function Profile(){
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <VStack 
+      <VStack 
       color = {dark ? 'white':'black'}
       bgImg= {dark? "/DarkMode.jpg": "/LightMode.jpg"}
       bgSize="100%"
@@ -42,10 +43,10 @@ export default function Profile(){
         </HStack>
         
         <HStack justifyContent="flex-end" spacing="5">
-        <Text as='b'>John Michael Amican</Text>
+        <Text as='b'>{firstName+' '+surName}</Text>
         <Img borderRadius='full'
           boxSize='40px'
-          src = '/Mikmik.jpg'
+          src = {profilePic}
           alt='Dan Abramov'
         />  
         <Button
