@@ -1,10 +1,12 @@
 import Head from "next/head";
-import { Button, Heading, HStack } from "@chakra-ui/react";
+import { Button, Container, Heading, HStack, Switch, VStack } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import Router from "next/router";
+import { useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [dark, setDark] = useState(false);
   return (
     <>
       <Head>
@@ -13,13 +15,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <VStack 
+      bgImg= {dark? "/DarkMode.jpg": "/LightMode.jpg"}
+      bgSize="100%"
+      width="100%"
+      height="100vh"
+      >
       <HStack 
-      justifyContent={"space-between"} 
+      justifyContent={"space-between"}
+      spacing="1100" 
       mt="3" 
       mr="2" >
-        <HStack> 
-
+        <HStack justifyContent={'flex-start'}>
+        <Switch
+                  paddingTop={"1"}
+                  colorScheme={"teal"}
+                  size={"md"}
+                  onChange={() => setDark(!dark)}
+                />
         </HStack>
         <HStack justifyContent="flex-end" spacing="5">
 
@@ -36,6 +49,7 @@ export default function Home() {
 
         </HStack>
       </HStack>
+      </VStack>
     </>
   );
 }

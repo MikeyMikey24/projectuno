@@ -1,9 +1,11 @@
 
-import { Button, Center, Heading, HStack, Text, } from '@chakra-ui/react'
+import { Button, Center, Heading, HStack, Switch, Text, VStack, } from '@chakra-ui/react'
 import Head from 'next/head'
 import  Router  from 'next/router'
+import { useState } from 'react';
 
 export default function Profile(){
+  const [dark, setDark] = useState(false);
     let firstName = 'John Michael'
     return(
         <><Head>
@@ -12,12 +14,18 @@ export default function Profile(){
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-    <Center><Heading>Profile tab</Heading></Center>
-    <Center><Text>Name: {firstName} </Text></Center>
-    <HStack 
-      justifyContent={"space-between"} 
+    <VStack 
+      bgImg= {dark? "/DarkMode.jpg": "/LightMode.jpg"}
+      bgSize="100%"
+      width="100%"
+      height="100vh"
+      >
+      <HStack 
+      justifyContent={"space-between"}
+      spacing="1100" 
       mt="3" 
       mr="2" >
+        <HStack justifyContent={'flex-start'}>
         <HStack> 
           <Button
           colorScheme="DarkCyan"
@@ -25,8 +33,21 @@ export default function Profile(){
         >
           Home
         </Button>
-
+        
         </HStack>
+        <Switch
+                  paddingTop={"1"}
+                  colorScheme={"teal"}
+                  size={"md"}
+                  onChange={() => setDark(!dark)}
+                />
+        </HStack>
+        </HStack>
+    <HStack 
+      justifyContent={"space-between"} 
+      mt="3" 
+      mr="2" >
+
         <HStack justifyContent="flex-end" spacing="5">
 
         <Button 
@@ -42,6 +63,7 @@ export default function Profile(){
 
         </HStack>
       </HStack>
+      </VStack>
         </>
-    )
+  );
 }
