@@ -44,7 +44,7 @@ export default function Profile(){
         <Text as='b'>John Michael Amican</Text>
         <Img borderRadius='full'
           boxSize='40px'
-          src = './Mikmik.jpg'
+          src = '/Mikmik.jpg'
           alt='Dan Abramov'
         />  
         <Button
