@@ -51,7 +51,7 @@ export default function Signup(){
 
         <Button 
         colorScheme="darkcyan"
-        onClick={() => Router.push({ pathname: "/Profile" })}>
+        onClick={() => Router.push({ pathname: "/signin" })}>
           Sign-in
           </Button>
 
