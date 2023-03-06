@@ -22,11 +22,11 @@ export default function Signup(){
       >
       <HStack 
       justifyContent={"space-between"}
-      spacing="1200" 
-      mt="3" 
-      mr="3" >
+      spacing="1000" 
+      mt="10" 
+      >
         <HStack justifyContent={'flex-start'}
-        ml="5">
+      >
           <Button
           colorScheme="DarkCyan"
           onClick={() => Router.push({ pathname: "/" })}

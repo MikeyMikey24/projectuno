@@ -1,10 +1,11 @@
-import { Img, Button, HStack, Switch, Text, VStack, } from '@chakra-ui/react'
+import { Img, Button, HStack, Switch, Text, VStack, useDisclosure, Modal, ModalCloseButton, ModalContent, ModalOverlay, } from '@chakra-ui/react'
 import Head from 'next/head'
 import  Router  from 'next/router'
 import { useState } from 'react';
 
 export default function Profile(){
-  const [dark, setDark] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [dark, setDark] = useState(false);
     let firstName = 'John Michael'
     let surName = 'Amican'
     let profilePic = '/Mikmik.jpg'
@@ -19,20 +20,22 @@ export default function Profile(){
       color = {dark ? 'white':'black'}
       bgImg= {dark? "/DarkMode.jpg": "/LightMode.jpg"}
       bgSize="100%"
-      width="100%"
-      height="100vh"
+      width= "100%"
+      height= "100vh"
+      overflow = 'hidden'
       >
       <HStack 
+      mt="10"
       justifyContent={"space-between"}
-      spacing="1090" 
-      mt="3" 
-      ml="3" >
-        <HStack justifyContent={'flex-start'}>
+      spacing="1000" 
+    >
+        <HStack justifyContent={'flex-start'}
+        >
         <Button
           colorScheme="DarkCyan"
           onClick={() => Router.push({ pathname: "/" })}
         >
-          Home
+            Home
         </Button>
         <Switch
                   paddingTop={"1"}
@@ -42,13 +45,21 @@ export default function Profile(){
                 />
         </HStack>
         
-        <HStack justifyContent="flex-end" spacing="5">
-        <Text as='b'>{firstName+' '+surName}</Text>
+        <HStack 
+        mr="10"
+        justifyContent="flex-end" 
+        spacing="5">
+        <Text
+        _hover={{cursor:'pointer',color:'darkblue', transform:'scale(1.2)', transitionDuration:'.2s'}}
+        onClick={() => Router.push({ pathname: "https://www.facebook.com/Mikmikey24/" })}
+        as='b'>
+        {firstName+' '+surName}</Text>
         <Img borderRadius='full'
-          boxSize='40px'
+          boxSize='35px'
           src = {profilePic}
-          alt='Dan Abramov'
-        />  
+          onClick={onOpen}
+          alt='Mikmik'
+        />      
         <Button
           colorScheme="DarkCyan"
           onClick={() => Router.push({ pathname: "/" })}>
@@ -57,6 +68,19 @@ export default function Profile(){
         </HStack>
       </HStack>
       </VStack>
+        <Modal 
+        isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay/>
+        <ModalContent borderRadius='full'>
+        <ModalCloseButton color='white'/>
+        <Img
+        borderRadius='2%'
+          boxSize='100%'
+          src = {profilePic}
+          alt='Mikmik'
+        />      
+        </ModalContent>
+        </Modal>
         </>
   );
 }

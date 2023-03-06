@@ -22,10 +22,10 @@ export default function Home() {
       >
       <HStack 
       justifyContent={"space-between"}
-      spacing="1100" 
-      mt="3" 
-      ml="200" >
-        <HStack justifyContent={'flex-start'}>
+      spacing="1200" 
+      mt="10" 
+      >
+         <HStack justifyContent={'flex-start'}>
         <Switch
                   paddingTop={"1"}
                   colorScheme={"teal"}
@@ -37,7 +37,7 @@ export default function Home() {
         <HStack justifyContent="flex-end" spacing="5">
         <Button 
         colorScheme="darkcyan"
-        onClick={() => Router.push({ pathname: "/Profile" })}>
+        onClick={() => Router.push({ pathname: "/signin" })}>
           Sign-in
           </Button>
         <Button
