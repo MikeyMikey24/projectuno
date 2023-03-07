@@ -9,6 +9,8 @@ export default function Profile(){
     let firstName = 'John Michael'
     let surName = 'Amican'
     let profilePic = '/Mikmik.jpg'
+    let logo = '/projectUNO.png'
+
     return(
         <><Head>
             <title>Profile</title>
@@ -16,6 +18,7 @@ export default function Profile(){
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
+        {/* BODY */}
       <VStack 
       color = {dark ? 'white':'black'}
       bgImg= {dark? "/DarkMode.jpg": "/LightMode.jpg"}
@@ -25,10 +28,11 @@ export default function Profile(){
       overflow = 'hidden'
       >
       <HStack 
-      mt="10"
+      mt='8'
       justifyContent={"space-between"}
-      spacing="1000" 
-    >
+      spacing="300" 
+      >
+        {/* LEFT SIDE */}
         <HStack justifyContent={'flex-start'}
         >
         <Button
@@ -44,12 +48,22 @@ export default function Profile(){
                   onChange={() => setDark(!dark)}
                 />
         </HStack>
-        
+        {/* MIDDLE */}
+        <HStack>
+          <Img
+                  mr="10"
+                  ml="20"
+          h='70'
+          w='20vh'
+          src = {logo}/>
+        </HStack>
+        {/* RIGHT SIDE */}
         <HStack 
-        mr="10"
+       
         justifyContent="flex-end" 
         spacing="5">
-        <Text
+        <Text 
+
         _hover={{cursor:'pointer',color:'darkblue', transform:'scale(1.2)', transitionDuration:'.2s'}}
         onClick={() => Router.push({ pathname: "https://www.facebook.com/Mikmikey24/" })}
         as='b'>

@@ -1,10 +1,11 @@
-import { Button, Center,  Heading, HStack, Input, InputGroup, InputRightElement, Switch, VStack, } from '@chakra-ui/react'
+import { Button, Center,  Heading, HStack, Img, Input, InputGroup, InputRightElement, Switch, VStack, } from '@chakra-ui/react'
 import Head from 'next/head'
 import  Router  from 'next/router'
 import { useState, useContext } from "react";
 export default function Signup(){
     const [show, setShow] = useState(false);
     const [dark, setDark] = useState(false);
+    let logo = '/projectUNO.png'
     return(
         <>
         <Head>
@@ -22,8 +23,8 @@ export default function Signup(){
       >
       <HStack 
       justifyContent={"space-between"}
-      spacing="1000" 
-      mt="10" 
+      spacing="445" 
+      mt='8'
       >
         <HStack justifyContent={'flex-start'}
       >
@@ -41,6 +42,14 @@ export default function Signup(){
                   onChange={() => setDark(!dark)}
                 />
         
+        </HStack>
+        <HStack>
+          
+          <Img 
+           mr=""
+           h='70'
+          w='20vh'
+          src = {logo}/>
         </HStack>
         <HStack 
       justifyContent={"space-between"} 
@@ -64,7 +73,6 @@ export default function Signup(){
         </HStack>
       </HStack>
 
-    <Heading><Center>Register</Center></Heading> 
 
     <Center>
         <VStack paddingTop='50'>

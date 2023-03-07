@@ -1,10 +1,11 @@
 import Head from "next/head";
-import { Button, HStack, Switch, VStack } from "@chakra-ui/react";
+import { Button, HStack, Img, Switch, VStack } from "@chakra-ui/react";
 import Router from "next/router";
 import { useState } from "react";
 
 export default function Home() {
   const [dark, setDark] = useState(false);
+  let logo = 'projectUNO.png'
   return (
     <>
       <Head>
@@ -21,17 +22,24 @@ export default function Home() {
       height="100vh"
       >
       <HStack 
+      mt='8'
       justifyContent={"space-between"}
-      spacing="1200" 
-      mt="10" 
+      spacing="500"
       >
          <HStack justifyContent={'flex-start'}>
         <Switch
+        
                   paddingTop={"1"}
                   colorScheme={"teal"}
                   size={"md"}
                   onChange={() => setDark(!dark)}
                 />
+        </HStack>
+
+        <HStack>
+          <Img h='70'
+          w='20vh'
+          src = {logo}/>
         </HStack>
 
         <HStack justifyContent="flex-end" spacing="5">
