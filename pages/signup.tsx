@@ -28,12 +28,7 @@ export default function Signup(){
       >
         <HStack justifyContent={'flex-start'}
       >
-          <Button
-          colorScheme="DarkCyan"
-          onClick={() => Router.push({ pathname: "/" })}
-        >
-          Home
-        </Button>
+          
 
         <Switch
                   paddingTop={"1"}
@@ -41,6 +36,12 @@ export default function Signup(){
                   size={"md"}
                   onChange={() => setDark(!dark)}
                 />
+                <Button
+          colorScheme="DarkCyan"
+          onClick={() => Router.push({ pathname: "/" })}
+        >
+          Home
+        </Button>
         
         </HStack>
         <HStack>

@@ -35,18 +35,19 @@ export default function Profile(){
         {/* LEFT SIDE */}
         <HStack justifyContent={'flex-start'}
         >
-        <Button
-          colorScheme="DarkCyan"
-          onClick={() => Router.push({ pathname: "/" })}
-        >
-            Home
-        </Button>
+        
         <Switch
                   paddingTop={"1"}
                   colorScheme={"teal"}
                   size={"md"}
                   onChange={() => setDark(!dark)}
                 />
+                <Button
+          colorScheme="DarkCyan"
+          onClick={() => Router.push({ pathname: "/" })}
+        >
+            Home
+        </Button>
         </HStack>
         {/* MIDDLE */}
         <HStack>
