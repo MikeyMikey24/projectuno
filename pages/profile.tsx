@@ -55,6 +55,11 @@ export default function Home() {
         onClick={onOpen}
         alt='Mikmik'
         />      
+           <Button
+          colorScheme="DarkCyan"
+          onClick={() => Router.push({ pathname: "/dashboard" })}>
+          Dashboard
+        </Button>
         <Button
           colorScheme="DarkCyan"
           onClick={() => Router.push({ pathname: "/" })}>
