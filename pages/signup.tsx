@@ -1,11 +1,50 @@
-import { Button, Center,  Heading, HStack, Img, Input, InputGroup, InputRightElement, Switch, VStack, } from '@chakra-ui/react'
+import { db } from '@/firebase/config';
+import { Button, Center,  Heading, HStack, Img, Input, InputGroup, InputRightElement, Switch, useToast, VStack, } from '@chakra-ui/react'
+import { CollectionReference, doc, DocumentData, setDoc, } from 'firebase/firestore';
 import Head from 'next/head'
 import  Router  from 'next/router'
 import { useState, useContext } from "react";
 export default function Signup(){
     const [show, setShow] = useState(false);
     const [dark, setDark] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [emailAddress, setEmailAddress] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [birthDate, setBirthDate] = useState("");
+    const toast = useToast();
+
     let logo = '/projectUNO.png'
+
+
+async function signup(){
+  const docRef = await setDoc(doc(db, "user", emailAddress), {
+    username: username,
+    password: password,
+    email_address: emailAddress,
+    first_name: firstName,
+    last_name: lastName,
+    full_name: firstName+' '+lastName,
+    birth_date: birthDate,
+    
+  });
+
+  toast({
+    title: "Account created.",
+    description: "Successful",
+    status: "success",
+    duration: 2500,
+    isClosable: true,
+    position: "bottom-right",
+  });
+
+  setUsername("");
+  setPassword("");
+  setEmailAddress("");
+  Router.push({ pathname: "/" })
+}
+
     return(
         <>
         <Head>
@@ -22,13 +61,16 @@ export default function Signup(){
       height="100vh"
       >
       <HStack 
-      justifyContent={"space-between"}
-      spacing="445" 
       mt='8'
+      justifyContent={"space-between"}
+      spacing="1000"
       >
         <HStack justifyContent={'flex-start'}
       >
-          
+        <Img    
+          h='50'
+          w='15vh'
+          src = {logo}/>
 
         <Switch
                   paddingTop={"1"}
@@ -44,14 +86,7 @@ export default function Signup(){
         </Button>
         
         </HStack>
-        <HStack>
-          
-          <Img 
-           mr=""
-           h='70'
-          w='20vh'
-          src = {logo}/>
-        </HStack>
+
         <HStack 
       justifyContent={"space-between"} 
       mt="3" 
@@ -76,10 +111,15 @@ export default function Signup(){
 
 
     <Center>
-        <VStack paddingTop='50'>
-            <Input placeholder='Username' />
+        <VStack 
+        ml='-20'
+        paddingTop='50'>
+            <Input 
+            onChange={(value) => setUsername(value.target.value)}
+            placeholder='Username' />
             <InputGroup size='md'>
             <Input
+            onChange={(value) => setPassword(value.target.value)}
               pr='4.5rem'
               type={show ? 'text' : 'password'}
               placeholder='Enter password'
@@ -93,12 +133,36 @@ export default function Signup(){
         
       />
       </InputRightElement>
-      </InputGroup>
-            <Input placeholder='Email Address' />
+      </InputGroup>   
+        <HStack>            
+          <Input
+            onChange={(value) => setFirstName(value.target.value)}
+            placeholder='First Name' />
+          <Input
+            onChange={(value) => setLastName(value.target.value)}
+            placeholder='Last Name' />
+            </HStack>
+
+            <Input 
+            onChange={(value) => setEmailAddress(value.target.value)}
+            placeholder='Email Address' />
+            
             <Input
-                placeholder="Select Date and Time"
-                size="md"
-                type="date"/>
+            onChange={(value) => setBirthDate(value.target.value)}
+            type = 'date'/>
+         
+
+
+        <Button
+        
+          colorScheme="DarkCyan"
+          onClick={() => {
+            signup();
+          }}>
+          Sign-up
+          
+        </Button>
+
         </VStack>
     </Center>
     </VStack>

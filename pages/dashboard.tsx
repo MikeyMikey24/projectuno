@@ -42,13 +42,13 @@ export default function Home() {
         <HStack justifyContent="flex-end" spacing="5">
         <Button 
         colorScheme="darkcyan"
-        onClick={() => Router.push({ pathname: "/signin" })}>
-          Sign-in
+        onClick={() => Router.push({ pathname: "/profile" })}>
+          Profile
           </Button>
         <Button
           colorScheme="DarkCyan"
-          onClick={() => Router.push({ pathname: "/signup" })}>
-          Sign-up
+          onClick={() => Router.push({ pathname: "/" })}>
+          Log out
         </Button>
         </HStack>
       </HStack>
